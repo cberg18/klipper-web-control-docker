@@ -138,7 +138,7 @@ RUN useradd --user-group --no-log-init --shell /bin/false -m -d ${HOME} ${USER} 
 
 COPY --chown=${USER}:${USER} --from=builder ${WHEELS} ${WHEELS}
 
-RUN pip install --no-index -f ${WHEELS} supervisord-dependent-startup gpiod numpy matplotlib && \
+RUN pip install --no-index -f ${WHEELS} supervisord-dependent-startup gpiod numpy==1.25.2 matplotlib && \
     mkdir -p /usr/lib/python3 && \
     ln -s /usr/local/lib/python3.10/site-packages /usr/lib/python3/dist-packages && \
     rm -Rf ${WHEELS}
