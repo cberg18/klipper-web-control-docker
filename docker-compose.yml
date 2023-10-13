@@ -2,7 +2,7 @@ version: '2'
 
 services:
   klipper:
-    image: dimalo/klipper-moonraker
+    image: cberg18/klipper-moonraker
     build:
       dockerfile: ./klipper/Dockerfile
       context: .
@@ -62,10 +62,7 @@ services:
 
 
   fluidd:
-    image: dimalo/fluidd
-    # build:
-    #   dockerfile: Dockerfile
-    #   context: frontend
+    image: cberg18/fluidd
     restart: unless-stopped
     container_name: fluidd
     ports:
