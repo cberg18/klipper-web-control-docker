@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: mktcode/consecutive-workflow-action@e2e008186aa210faacd68ec30f6ac236f7e2f435
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.ACTIONS_TOKEN }}
 
   docker:
     runs-on: ubuntu-latest
