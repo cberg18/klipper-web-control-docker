@@ -31,6 +31,7 @@ jobs:
         id: prep
         run: |
           DOCKER_IMAGE=${{ secrets.DOCKER_USERNAME }}/klipper-moonraker
+          VERSION=latest
           DATE=${{steps.date.outputs.date}}
           BRANCH=${GITHUB_REF##*/}
 
@@ -38,6 +39,7 @@ jobs:
           if [[ $GITHUB_REF == refs/tags/* ]]; then
             VERSION=${GITHUB_REF#refs/tags/v}
           fi
+          TAGS="${DOCKER_IMAGE}:${VERSION},${DOCKER_IMAGE}:${DATE}"
 
           if [[ $BRANCH == develop ]]; then
             # If the BRANCH is 'develop', assume that
