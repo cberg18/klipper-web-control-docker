@@ -149,14 +149,14 @@ WORKDIR ${HOME}
 RUN mkdir -p ${HOME}/printer_data/gcodes ${CONFIG_DIR} ${HOME}/.moonraker_database 
 
 VOLUME ${HOME}/printer_data/gcodes
-VOLUME  ${HOME}/.moonraker_database 
+VOLUME ${HOME}/.moonraker_database 
 VOLUME ${CONFIG_DIR}
-
 
 EXPOSE 7125
 
 USER root
 
+RUN chown ${HOME}/printer_data
 COPY --chown=${USER}:${USER} --from=builder ${HOME}/klipper/out/klipper.elf /usr/local/bin/klipper_mcu
 COPY --chown=${USER}:${USER} --from=builder ${HOME}/klipper_z_calibration ${HOME}/klipper_z_calibration
 COPY --chown=${USER}:${USER} --from=builder ${HOME}/klipper ${HOME}/klipper
