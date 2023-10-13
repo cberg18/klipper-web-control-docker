@@ -14,7 +14,7 @@ services:
     restart: unless-stopped
     volumes:      
       - gcode_files:/home/klippy/printer_data/gcodes
-      - ./config:/home/klippy/printer_data/config
+      - /mnt/configs/kms/config:/home/klippy/printer_data/config
       - moonraker_data:/home/klippy/.moonraker_database
       
     devices:
