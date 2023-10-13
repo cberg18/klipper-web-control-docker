@@ -40,7 +40,7 @@ RUN apt-get update && \
 RUN sed -i -e 's/# en_GB.UTF-8 UTF-8/en_GB.UTF-8 UTF-8/' /etc/locale.gen
 RUN locale-gen
 RUN python -m pip install -U pip wheel && \
-    pip wheel --no-cache-dir -w ${WHEELS} supervisord-dependent-startup gpiod numpy matplotlib
+    pip wheel --no-cache-dir -w ${WHEELS} supervisord-dependent-startup gpiod numpy=1.25.2 matplotlib
 
 ENV LC_ALL en_GB.UTF-8 
 ENV LANG en_GB.UTF-8  
