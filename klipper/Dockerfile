@@ -39,8 +39,8 @@ RUN apt-get update && \
 
 RUN sed -i -e 's/# en_GB.UTF-8 UTF-8/en_GB.UTF-8 UTF-8/' /etc/locale.gen
 RUN locale-gen
-RUN python -m pip install -U pip wheel && \
-    pip wheel --no-cache-dir -w ${WHEELS} supervisord-dependent-startup gpiod numpy==1.25.2 matplotlib
+RUN python -m pip install -U pip wheel numpy && \
+    pip wheel --no-cache-dir -w ${WHEELS} supervisord-dependent-startup gpiod matplotlib
 
 ENV LC_ALL en_GB.UTF-8 
 ENV LANG en_GB.UTF-8  
@@ -138,7 +138,7 @@ RUN useradd --user-group --no-log-init --shell /bin/false -m -d ${HOME} ${USER} 
 
 COPY --chown=${USER}:${USER} --from=builder ${WHEELS} ${WHEELS}
 
-RUN pip install --no-index -f ${WHEELS} supervisord-dependent-startup gpiod numpy==1.25.2 matplotlib && \
+RUN pip install --no-index -f ${WHEELS} supervisord-dependent-startup gpiod numpy matplotlib && \
     mkdir -p /usr/lib/python3 && \
     ln -s /usr/local/lib/python3.10/site-packages /usr/lib/python3/dist-packages && \
     rm -Rf ${WHEELS}
