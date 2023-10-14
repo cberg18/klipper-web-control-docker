@@ -1,5 +1,5 @@
-![Mainsail Multiarch Image CI](https://github.com/dimalo/klipper-web-control-docker/workflows/Mainsail%20Multiarch%20Image%20CI/badge.svg)
-![Klipper Moonraker Multiarch Image CI](https://github.com/dimalo/klipper-web-control-docker/workflows/Klipper%20Moonraker%20Multiarch%20Image%20CI/badge.svg)
+![Mainsail Multiarch Image CI](https://github.com/cberg18/klipper-web-control-docker/workflows/Mainsail%20Multiarch%20Image%20CI/badge.svg)
+![Klipper Moonraker Multiarch Image CI](https://github.com/cberg18/klipper-web-control-docker/workflows/Klipper%20Moonraker%20Multiarch%20Image%20CI/badge.svg)
 
 - [klipper-web-control-docker](#klipper-web-control-docker)
   - [Features](#features)
@@ -12,9 +12,10 @@
 # klipper-web-control-docker
 __Klipper with Moonraker shipped with Fluidd and/or Mainsail__
 
+This is a fork of https://www.github.com/dimalo/klipper-web-control-docker with some changes to make things functional, since that maintainer appears to have abbandoned ship...
 - get your printer to the next level!
 - Docker Compose config and Dockerfiles provided!
-- Build with Github actions and deployed to https://hub.docker.com/u/dimalo
+- Build with Github actions and deployed to https://hub.docker.com/u/cberg18
 - Docker multiarch builds with best practices
 
 ## Features
@@ -107,17 +108,6 @@ Supply the group permissions to the docker-compose config in docker-compose.yml 
 Run ```docker-compose build```
 
 After build run ```docker-compose up -d``` and see if it works.
-
-__Klipper is crashing:__
-
-(from [#25](https://github.com/dimalo/klipper-web-control-docker/issues/25))
-
-_Klipper crashes with log similar to:_
-```log
-klipper Fatal Python error: pyinit_main: can't initialize time
-klipper | Python runtime state: core initialized
-klipper | PermissionError: [Errno 1] Operation not permitted
-```
 
 
 check your libseccomp version and update if needed (see [https://docs.linuxserver.io/faq#libseccomp](https://docs.linuxserver.io/faq#libseccomp))
